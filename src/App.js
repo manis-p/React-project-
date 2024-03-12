@@ -1,24 +1,58 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+
+} from "react-router-dom";
+
+import Navbar from './components/Navbar';
+import News from './components/News';
+import  About from './components/About';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <Router>
+      
+    <div>
+    <Navbar/>
     </div>
+    <Switch>
+    <Route path="/about">
+    <About/>
+          </Route>
+          <Route path="/home">
+          <News country="in" category="general"pageSize={9}/>
+          </Route>
+          <Route path="/business">
+          <News country="in" category="business" pageSize={9}/>
+          </Route>
+          <Route path="/entertainment">
+          <News country="in" category="entertainment" pageSize={9}/>
+          </Route>
+          <Route path="/general">
+          <News country="in" category="general" pageSize={9}/>
+          </Route>
+          <Route path="/health">
+          <News country="in" category="health" pageSize={9}/>
+          </Route>
+          <Route path="/science">
+          <News country="in" category="science" pageSize={9}/>
+          </Route>
+          <Route path="/sports">
+          <News country="in" category="sports" pageSize={9}/>
+          </Route>
+          <Route path="/technology">
+          <News country="in" category="technology" pageSize={9}/>
+          </Route>
+    </Switch>
+    </Router>
   );
 }
 
